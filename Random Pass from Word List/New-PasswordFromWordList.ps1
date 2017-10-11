@@ -13,7 +13,7 @@ function New-PasswordFromWordList
         $PasswordLength = $PasswordLength - 3
     }
 
-    if (($PasswordLength / $NumberOfWordsInPassword) -lt 4)
+    if (($PasswordLength / $NumberOfWordsInPassword) -lt 3)
     {
         Throw "Impossible calculation.`nToo many words requested in password for length to mathematically handle.`nPlease decrease the number of words or increase the password length."    
     }
@@ -33,7 +33,7 @@ function New-PasswordFromWordList
             $numArray = @()
         
             1..$NumberOfWordsInPassword | ForEach-Object {
-                $numArray += Get-Random -Minimum 4 -Maximum $PasswordLength
+                $numArray += Get-Random -Minimum 3 -Maximum $PasswordLength
             }
         
             foreach ($num in $numArray)
